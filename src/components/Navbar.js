@@ -4,9 +4,9 @@ import { Link, Outlet } from 'react-router-dom';
 
 const navigation = [
   // { name: 'Home', href: '/', current: true },
-  { name: 'Resume Templates', href: '/', current: false },
-  { name: 'About Us', href: '/about', current: false },
-  { name: 'My Resume', href: '/details', current: false },
+  { name: 'Resume Templates', href: '/resume_builder', current: false },
+  { name: 'About Us', href: '/resume_builder/about', current: false },
+  { name: 'My Resume', href: '/resume_builder/details', current: false },
 ]
 
 function classNames(...classes) {
