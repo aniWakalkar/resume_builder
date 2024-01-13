@@ -1,19 +1,27 @@
-import React from 'react'
-import { useState } from 'react';
-import {useSelector} from 'react-redux';
-import { initialState } from '../actions';
+import React, {useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux';
+import {handlePersonalDetails, handleDisplay} from '../actions/index'
+import { initialState } from '../actions/index';
 
 function Personal() {
+    const dispatch = useDispatch();
     const isDisplay = useSelector((state) => state.isDisplay)
     const [myInitialState, setMyInitialState] = useState(initialState)
     const handleSetInitialState = (e) => {
         setMyInitialState((prevInfo) => ({...prevInfo, [e.target.id]: e.target.value}));
     };
-    
+
   return (
     <>
-        <div className={isDisplay === 1 ? "flex items-center justify-center p-8" : "hidden items-center justify-center p-12"}>
+        <div className={isDisplay === 1 ? "flex items-center justify-evenly p-8" : "hidden items-center justify-center p-12"}>
         {/* <!-- Author: FormBold Team --> */}
+
+        {/* <button
+            className="hover:shadow-form mx-auto rounded-md bg-[#6A64F1] text-center text-base font-semibold text-white outline-none p-2 mr-10" >
+            Prev 
+        </button> */}
+
+
         <div className="mx-auto w-full max-w-[550px] bg-white">
             <div className="mb-5">
                 <input type="text" name="name" id="name" placeholder="Full Name"
@@ -91,16 +99,20 @@ function Personal() {
 
             <div  className='flex flex-wrap'>
                 <button
-                    className="hover:shadow-form w-32 mx-auto my-1 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
+                    className="w-full hover:shadow-form mx-auto my-1 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
+                    onClick={()=>{dispatch(handlePersonalDetails(myInitialState)); dispatch(handleDisplay(2))}}
                     >
-                    Next {'->'}
-                </button>
-                <button
-                    className="hover:shadow-form w-32 mx-auto my-1 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                    ADD + 
+                    Save & Next
                 </button>
             </div>
         </div>
+
+        {/* <button
+            className="hover:shadow-form mx-auto rounded-md bg-[#6A64F1] text-center text-base font-semibold text-white outline-none py-5 p-2 ml-10">
+            Next {`->`}
+        </button> */}
+
+
         </div>
     </>
   )

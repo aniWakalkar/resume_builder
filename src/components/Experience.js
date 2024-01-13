@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {handleExperienceDetails, handleDisplay} from '../actions';
 
 function Experience() {
+    const dispatch = useDispatch();
     const isDisplay = useSelector((state) => state.isDisplay)
     const [inputs, setInputs] = useState([{ company: "", position: "", startYear: "", endYear: "" }]);
 
@@ -24,14 +26,14 @@ function Experience() {
             inputs.map((value, index)=>{
                 return <div className="mx-auto w-full max-w-[550px] bg-white" key={index}>
                     <div className="-mx-3 flex flex-wrap">
-                        <div className="w-full sm:w-2/3">
+                        <div className="w-full sm:w-1/2">
                             <div className="mb-5">
                                 <input type="text" name={`companyName-${index}`} id={`companyName-${index}`}
                                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" placeholder='Company Name'
                                 value={value.company} onChange={(e)=>{handleInputChange(index, 'company', e.target.value)}}/>
                             </div>
                         </div>
-                        <div className="w-full pl-2 sm:w-1/3">
+                        <div className="w-full pl-2 sm:w-1/2">
                             <div className="mb-5">
                                 <input type="text" name={`postName-${index}`} id={`postName-${index}`} min="0"
                                     className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" placeholder='Position'
@@ -57,21 +59,24 @@ function Experience() {
                         </div>
                     </div>
 
-                    <div  className='flex flex-wrap'>
-                        <button
-                            className="hover:shadow-form w-32 mx-auto my-1 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                            Next {'->'}
-                        </button>
-                        <button
-                            className="hover:shadow-form w-32 mx-auto my-1 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
-                            onClick={handleAddForm}>
-                            ADD + 
-                        </button>
-                    </div>
-                    <hr className='border-1 my-5 border-black'/>
+                    <div className='flex justify-start flex-wrap'>
+                    <button
+                        className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
+                        onClick={handleAddForm}>
+                        ADD + 
+                    </button>
                 </div>
+
+                <hr className='border-1 my-5 border-black'/>
+            </div>
             })
         }
+
+        <button
+            className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
+            onClick={()=>{dispatch(handleExperienceDetails(inputs)); dispatch(handleDisplay(5))}}>
+            Save & Next
+        </button>
 
     </div>
     </>

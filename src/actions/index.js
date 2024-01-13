@@ -14,7 +14,19 @@ export const decrement = () => {
 export const handleDisplay = (num) => {
     return{
         type: "DISPLAY",
-        payload: num
+        payload : num
+    }
+}
+
+export const handleBlock = () => {
+    return{
+        type: "DISPLAY",
+    }
+}
+
+export const handleHidden = () => {
+    return{
+        type: "HIDDEN",
     }
 }
 
@@ -30,15 +42,61 @@ export const initialState =
         postalCode: "",
         aboutMe: "",
     }
-   
-    
 
-export const handleSkillsLanguages = (skill) => {
-    return {
-        type: "SKILLS",
-        payload: skill
+
+export const handlePersonalDetails = (value) => {
+    return{
+        type: "PERSONAL",
+        payload: value
     }
 }
+
+
+
+export const initialEducationState = 
+    { 
+        college: "",
+        degree: "",
+        startYear: "",
+        endYear: "",
+    }
+
+
+export const handleEducationDetails = (value) => {
+    return{
+        type: "EDUCATION",
+        payload: value
+    }
+}
+
+
+
+export const handleSkillDetails = (value) => {
+    return{
+        type: "SKILLS",
+        payload: value
+    }
+}
+
+
+
+export const initialExperienceState = 
+    { 
+        company: "",
+        position: "",
+        startYear: "",
+        endYear: "",
+    }
+
+
+export const handleExperienceDetails = (value) => {
+    return{
+        type: "EXPERIENCE",
+        payload: value
+    }
+}
+   
+    
 
 
 
