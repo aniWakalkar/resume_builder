@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// getting all resducers and managing all states
 import {createStore} from 'redux'
-import allReducer from './reducers'
+import allReducer from './state/reducers/index'
 import { Provider } from 'react-redux'
 const store = createStore(allReducer)
 
