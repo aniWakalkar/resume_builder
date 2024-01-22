@@ -1,29 +1,63 @@
-import React from 'react'
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import resumeTemplate from '../Templates/resumeTemplate.webp'
+import resumeTemplate from "../Templates/resumeTemplate.webp";
 
 function Home() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
-        <div className='container mx-auto p-4 h-screen '>
+      <div className="mx-auto p-4 h-full mt-10 ">
         <p className="text-2xl font-medium mt-4 font-mono">Templates</p>
         <p className="font-serif ">Select a template to get started</p>
-        <div className="md:container flex flex-wrap md:mx-auto pt-8">
 
-            <div className="w-80 p-2 rounded sm:w-2/4 md:w-2/2 lg:w-1/3">
-                <img className='border-2 shadow hover:shadow-2xl h-4/4' src={resumeTemplate} alt="resumeTemplate" onClick={()=>{ navigate('/resume_builder/about')}}/>
-            </div>
-            <div className="w-80 p-2 rounded sm:w-2/4 md:w-2/2 lg:w-1/3">
-                <img className='border-2 shadow hover:shadow-2xl h-4/4' src={resumeTemplate} alt="resumeTemplate" onClick={()=>{ navigate('/resume_builder/about')}}/>
-            </div>
-            <div className="w-80 p-2 rounded sm:w-2/4 md:w-2/2 lg:w-1/3">
-                <img className='border-2 shadow hover:shadow-2xl h-4/4' src={resumeTemplate} alt="resumeTemplate" onClick={()=>{ navigate('/resume_builder/about')}}/>
-            </div>
+        <div className="flex flex-wrap ms:flex-wrap-reverse pt-8">
+          <div className="p-2 rounded lg:w-1/4 md:w-2/4 sm:w-4/4">
+            <img
+              className="border-2 shadow hover:shadow-2xl lg:h-4/4"
+              src={resumeTemplate}
+              alt="resumeTemplate"
+              onClick={() => {
+                navigate("/resume_builder/details");
+              }}
+            />
+          </div>
+
+          <div className="p-2 rounded lg:w-1/4 md:w-2/4 sm:w-4/4">
+            <img
+              className="border-2 shadow hover:shadow-2xl lg:h-4/4"
+              src={resumeTemplate}
+              alt="resumeTemplate"
+              onClick={() => {
+                navigate("/resume_builder/details");
+              }}
+            />
+          </div>
+
+          <div className="p-2 rounded lg:w-1/4 md:w-2/4 sm:w-4/4">
+            <img
+              className="border-2 shadow hover:shadow-2xl lg:h-4/4"
+              src={resumeTemplate}
+              alt="resumeTemplate"
+              onClick={() => {
+                navigate("/resume_builder/details");
+              }}
+            />
+          </div>
+
+          <div className="p-2 rounded lg:w-1/4 md:w-2/4 sm:w-4/4">
+            <img
+              className="border-2 shadow hover:shadow-2xl lg:h-4/4"
+              src={resumeTemplate}
+              alt="resumeTemplate"
+              onClick={() => {
+                navigate("/resume_builder/details");
+              }}
+            />
+          </div>
         </div>
-        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
